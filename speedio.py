@@ -9,7 +9,10 @@ class Speedio:
         if(self.setor is None):
             self.setor = data.get('CNAE PRINCIPAL DESCRICAO')
         self.cep = data.get('CEP') 
-        self.telefone = data.get('DDD') + data.get('TELEFONE') 
+        if(data.get('DDD') != None and data.get('TELEFONE') != None):
+            self.telefone = data.get('DDD') + data.get('TELEFONE') 
+        else:
+            self.telefone = None
         self.email = data.get('EMAIL')
         self.tipoLogradouro = data.get('TIPO LOGRADOURO') 
         self.logradouro = data.get('LOGRADOURO') 

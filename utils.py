@@ -20,6 +20,7 @@ def validaCNPJ(cnpj=str):
 
 def consultaCNPJ(CNPJ=str, consulta=str):
     cnpj = CNPJ.replace('.', "").replace("/", "").replace("-", "")
+    print(cnpj)
     if(consulta == 'speedio'):
         data = requests.get(f"{urlSpeedio}{cnpj}").json()
         company = Speedio(data)

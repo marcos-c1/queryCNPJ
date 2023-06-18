@@ -7,7 +7,10 @@ class ConsultaWS:
         self.cidade = data['estabelecimento']['cidade']['nome']
         self.cep = data['estabelecimento']['cep']
         self.uf = data['estabelecimento']['estado']['sigla']
-        self.telefone = data['estabelecimento']['ddd1'] + data['estabelecimento']['telefone1']
+        if(data['estabelecimento']['ddd1'] != None and data['estabelecimento']['telefone1']): 
+            self.telefone = data['estabelecimento']['ddd1'] + data['estabelecimento']['telefone1']
+        else:
+            self.telefone = None
         self.email = data['estabelecimento']['email']
         self.ramo = data['estabelecimento']['atividade_principal']['descricao']
         inscricoes = data['estabelecimento']['inscricoes_estaduais']
